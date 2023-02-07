@@ -1,0 +1,46 @@
+<div class='grid place-content-center min-h-[100vh] h-full bg-gray-400'>
+  <div class='px-5 py-2  md:w-[500px]'>
+    <h1 class='text-gray-800 text-xl font-bold text-center'>Create a new Daily Workout plan</h1>
+    <%= simple_form_for @dailyWorkout, html: { class: "space-y-4 md:px-10 p-2" } do |f| %>
+        <% input_items_class = "px-5 w-full bg-indigo-400 placeholder:text-slate-600 text-black outline-none border-none" %>
+     <div>
+        <label class="block py-2 font-medium text-[16px]" for="focus">Daily focus</label>
+        <%= f.input :focus, label: false, input_html: { placeholder: "Enter your focus of the day", class: input_items_class } %>
+     </div>
+      <%= f.simple_fields_for :lifts do |l| %>
+        <div id='fieldSetContainer' >
+            <fieldset id='0' class='bg-indigo-300 p-4 mt-5'>
+            <h2 class="text-[16px]">Complete lifts Bellow</h2>
+            <div>
+                <label class="block py-2 font-medium text-[14px]" for="name">Lift name</label>
+                <%= l.input :name, label: false, input_html: { placeholder: "Name of your lift", class: "#{input_items_class} " } %>
+            </div>
+               <div>
+                <label class="block py-2 font-medium text-[14px]" for="reps">Lift Repetitions</label>
+                <%= l.input :reps, label: false, input_html: { placeholder: "Number of repetions", class: "#{input_items_class} " } %>
+            </div>
+               <div>
+                <label class="block py-2 font-medium text-[14px]" for="sets">Lift Sets</label>
+                <%= l.input :sets, label: false, input_html: { placeholder: "Number of sets", class: "#{input_items_class} " } %>
+            </div>
+            </fieldset>
+        </div>
+      <% end %>
+        <%= f.button :submit, "Create Daily_Workout", class: "bg-gray-800 py-4 text-center w-full" %>
+    <% end %>
+      <p class='w-full text-center py-3'>or</p>
+     <button class='w-full py-2 text-center text-gray-800 bg-indigo-200' id='addWorkout' onClick="addWorkout()">Add lift</button> 
+    <br/>
+  </div>
+</div>
+
+<script>
+
+  const addWorkout = ()=>{
+    const lastId = document.querySelector('#fieldSetContainer').lastElementChild.id;
+    const newId = parseInt(lastId, 10) + 1;
+    const newFieldset = document.querySelector('[id="0"]').outerHTML.replace(/0/g, newId);
+    document.querySelector('#fieldSetContainer').insertAdjacentHTML('beforeend', newFieldset);
+  }
+
+</script>

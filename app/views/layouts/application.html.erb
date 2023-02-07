@@ -12,9 +12,30 @@
   </head>
 
   <body>
-    <%= render "layouts/nav" %>
+    <%= render "layouts/nav" %>    
     <main>
+      <% flash.each do |message_type, message| %>
+        <div id='alert' class='absolute w-full flex items-center justify-center'>
+          <div class='relative md:w-[70%] w-full h-auto text-center bg-green-300 py-5'>
+            <%= message %>
+            <button class="absolute text-gray-800 px-4 bg-red-400 text-[20px] font-bold top-0 h-full right-0" onclick="this.parentElement.style.display='none'">
+              &times;
+            </button>
+          </div>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
+
+    <% # JavaScript fuction %>
+
+    <script>
+      setTimeout(function() {
+        let alertElement = document.getElementById("alert");
+        if (alertElement) {
+          alertElement.style.display = "none";
+        }
+      }, 3500);
+    </script>
   </body>
 </html>
