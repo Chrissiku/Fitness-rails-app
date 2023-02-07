@@ -1,10 +1,10 @@
 <div class='bg-gray-800 text-white'>
-    <nav class='flex flex-col md:flex-row gap-3 justify-between items-center px-20 py-5'> 
+    <nav class='flex flex-col md:flex-row gap-3 justify-between items-center md:px-20 px-5 py-5'> 
         <div>
-            <%= link_to "Fitness web", root_path, class: "text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline" %>
+            <%= link_to content_tag(:span, "Fitness", class: "text-indigo-400") + " & Mindset", root_path, class: "md:text-2xl text-xl cursor-pointer font-bold tracking-widest uppercase" %>
         </div>
         <div class='flex flex-col md:flex-row'>
-            <% nav_item_class = "mix-w-[50px] px-4 py-2 text-sm font-semibold bg-transparent hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shodow-outline" %>
+            <% nav_item_class = "transition-all duration-500 easy-in-out mix-w-[50px] px-4 py-2 text-sm font-semibold bg-transparent hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shodow-outline" %>
             <%= link_to "Get Stared", root_path, class: nav_item_class %>
             <%= link_to "Monthly plan", root_path, class: nav_item_class %>
             <%= link_to "Login", root_path, class: nav_item_class %>
