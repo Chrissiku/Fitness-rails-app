@@ -18,3 +18,4 @@ production:
   database: fitness_production
   username: fitness
   password: <%= ENV["FITNESS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
