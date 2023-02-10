@@ -1,0 +1,48 @@
+<div class='flex flex-col justify-center items-center w-full h-auto text-gray-800'>
+    <section class='flex flex-col justify-center items-center space-y-6 px-3 w-full h-auto'>
+        <div class='w-full flex flex-col items-center justify-center gap-2'>
+            <span class='block uppercase text-indigo-600 font-medium text-[20px]'>today's program</span>
+            <h2 class='text-center text-4xl font-bold tracking-tight text-gray-800'>Shape your physique through a determined state of mind and Explosive power.</h2>
+        </div>
+        <div class='w-full py-5'>
+            <div class="flex flex-col w-full">
+            <div class="overflow-x-auto">
+                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                    <table class="w-full text-center border-collapse border border-gray-800 capitalize">
+                        <thead class='bg-gray-200'>
+                            <tr>
+                                <th scope="col" class="border border-gray-800 font-medium text-gray-800 px-6 py-4">
+                                    LIFT
+                                </th>                                
+                                <th scope="col" class="border border-gray-800 font-medium text-gray-800 px-6 py-4">
+                                    SETS
+                                </th>
+                                <th scope="col" class="border border-gray-800 font-medium text-gray-800 px-6 py-4">
+                                    REPS
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @daily_workout.lifts.each do |lift| %>
+                                <tr>
+                                    <td class="border border-gray-800 text-gray-800 font-light px-6 py-4 whitespace-nowrap">
+                                        <%= lift.name %>
+                                    </td>
+                                    <td class="border border-gray-800 text-gray-800 font-light px-6 py-4 whitespace-nowrap">
+                                        <%= lift.sets %>
+                                    </td>
+                                    <td class="border border-gray-800 text-gray-800 font-light px-6 py-4 whitespace-nowrap">
+                                        <%= lift.reps %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+</div>
