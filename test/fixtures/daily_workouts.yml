@@ -2,8 +2,8 @@
 
 one:
   focus: MyString
-  lift: one
+  # lift: one
 
 two:
   focus: MyString
-  lift: two
+  # lift: two

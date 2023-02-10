@@ -1,11 +1,6 @@
 require "test_helper"
 
-class HomeControllerTest < ActionDispatch::IntegrationTest
-  # test "should get home" do
-  #   get home_home_url
-  #   assert_response :success
-  # end
-
+class HomeLayoutsTest < ActionDispatch::IntegrationTest
   test "proper layout links" do
     get root_path
     assert_select "a[href=?]", root_path, count: 3
